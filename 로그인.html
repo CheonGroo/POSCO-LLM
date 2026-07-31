@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body align="center">
+    <div style="height: 100px"></div>
+    <h1>로그인</h1>
+    <form method="post" action="/login">
+      <label for="uid">사용자 ID</label>
+      <input type="text" id="uid" name="user_id" required />
+      <div style="height: 30px"></div>
+      <label for="pw">비밀번호</label>
+      <input type="password" id="pw" name="pw" required />
+      <div style="height: 30px"></div>
+      <button type="submit">로그인</button>
+      <button type="reset">초기화</button>
+    </form>
+  </body>
+</html>

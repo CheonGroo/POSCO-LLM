@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body align="center">
+    <div style="height: 30px"></div>
+    <h3>인적 사항</h3>
+    <form action="">
+      <label>이름 : <input type="text" placeholder="천그루" required /></label>
+      <div style="height: 10px"></div>
+      <label
+        >Email :
+        <input type="email" placeholder="llmlecture@posco.com" required
+      /></label>
+      <div style="height: 10px"></div>
+      <label>비밀번호 : <input type="password" required /></label>
+      <div style="height: 10px"></div>
+      <input type="date" value="1998-09-25" />
+    </form>
+    <div style="height: 30px"></div>
+    <h3>부서 선택</h3>
+    <select name="dept">
+      <option value="">-- 선택하세요--</option>
+      <option value="d1">부서 A</option>
+      <option value="d2">부서 B</option>
+      <option value="d3">부서 C</option>
+    </select>
+    <div style="height: 30px"></div>
+    <h3>역할</h3>
+    <input type="radio" name="role" value="op" /> 운영자
+    <input type="radio" name="role" value="op" checked /> 회원
+    <input type="radio" name="role" value="op" /> 방문자
+    <div style="height: 30px"></div>
+    <h3>관심 기능</h3>
+    <input type="checkbox" name="feat" value="f1" checked /> 기능 A
+    <input type="checkbox" name="feat" value="f2" /> 기능 B
+    <input type="checkbox" name="feat" value="f3" /> 기능 C
+    <div style="height: 30px"></div>
+    <h3>비고</h3>
+    <input type="text" />
+    <div style="height: 30px"></div>
+    <button type="submit">등록</button>
+    <button type="reset">취소</button>
+  </body>
+</html>

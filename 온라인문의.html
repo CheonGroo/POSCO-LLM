@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    fieldset {
+        width: 350px; 
+        margin: 0 auto; 
+        text-align: center;
+        margin-bottom: 30px;
+      }
+  </style>
+  <body align="center">
+    <div style="height: 50px"></div>
+    <fieldset style="width: 500">
+      <legend>문의 유형</legend>
+    <select name="complain">
+      <optgroup label="문의 유형">
+        <option value="CS" selected>CS</option>
+        <option value="배송">배송</option>
+        <option value="교환">교환</option>
+        <option value="환불">환불</option>
+      </optgroup>
+    </select>
+    </fieldset>
+    <div style="height: 30px"></div>
+    <fieldset style="width: 500">
+      <legend>심각도</legend>
+    <label>
+      <input type="radio" name="seat" value="1" checked />심각하지않음</label
+    >
+    <label> <input type="radio" name="seat" value="2" />일반</label>
+    <label> <input type="radio" name="seat" value="3" />매우심각</label>
+    </fieldset>
+    <div style="height: 30px"></div>
+    <fieldset style="width: 500">
+      <legend>발생 일시</legend>
+    <input type="date" />
+    </fieldset>
+    <div style="height: 30px"></div>
+    <fieldset style="width: 500">
+      <legend>문의 내용</legend>
+      <textarea
+        name="detail"
+        rows="3"
+        placeholder="내용을 작성해주세요"
+      ></textarea>
+      </fieldset>
+      <div style="height: 30px"></div>
+      <input type="file" name="attach" accept=".pdf,image/*" />
+      <button type="submit">제출</button>
+    </fieldset>
+  </body>
+</html>
