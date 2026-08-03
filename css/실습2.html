@@ -5,29 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-      div {
-        background-color: navy;
+      form {
+        width: 400px;
+      }
+      textarea {
+        width: 100%;
+      }
+      button {
+        float: right;
+        padding: 5px 15px;
+        font-size: 17px;
+        border-radius: 10px;
+        border: none;
+      }
+
+      button:active {
+        float: right;
+        padding: 5px 15px;
+        background-color: #f96666;
+        color: white;
+        font-size: 17px;
+        border-radius: 10px;
+        border: none;
+      }
+
+      h3:hover {
+        background-color: black;
         color: white;
       }
-      .stripes div:nth-child(4n-2) {
+      textarea:focus {
+        background-color: pink;
+      }
+
+      [value="red"]:checked + label {
+        background-color: red;
+        color: white;
+      }
+      [value="blue"]:checked + span {
+        background-color: blue;
+        color: white;
+      }
+      [value="yellow"]:checked + span {
         background-color: yellow;
-        color: navy;
       }
     </style>
   </head>
   <body>
-    <div class="stripes">
-      <div>navy</div>
-      <div>yellow</div>
-      <div>navy</div>
-      <div>navy</div>
-      <div>navy</div>
-      <div>yellow</div>
-      <div>navy</div>
-      <div>navy</div>
-      <div>navy</div>
-      <div>yellow</div>
-      <div>navy</div>
-    </div>
+    <h3>건의 사항을 적어주세요!</h3>
+    <form action="">
+      <textarea class="detail" rows="5" placeholder="건의 사항"></textarea>
+      <input type="checkbox" class="color" value="red" /><span>빨강</span>
+      <input type="checkbox" class="color" value="blue" /><span>파랑</span>
+      <input type="checkbox" class="color" value="yellow" /><span>노랑</span>
+      <br />
+      <button>제출</button>
+    </form>
   </body>
 </html>
