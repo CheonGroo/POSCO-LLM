@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        display: grid;
+        /* 열 3개 1:2:1 비율 1fr 2fr 1fr */
+        /* repeat(4, 1fr) 4개열 */
+        grid-template-columns: 1fr minmax(200px, 1fr) 1fr;
+        gap: 10px;
+
+        /* 행 2개 60px 60px */
+        /* grid-template-rows: 160px 60px; */
+
+        background-color: lightgray;
+      }
+      .cell {
+        background-color: antiquewhite;
+        border: 2px solid black;
+        text-align: center;
+        line-height: 56px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="cell">1</div>
+      <div class="cell">2</div>
+      <div class="cell">3</div>
+      <div class="cell">4</div>
+      <div class="cell">5</div>
+      <div class="cell">6</div>
+    </div>
+  </body>
+</html>

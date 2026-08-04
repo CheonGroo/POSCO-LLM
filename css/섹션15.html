@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .s15-container {
+        display: grid;
+        grid-template-areas: "header header header" "nav main aside" "footer footer footer";
+        grid-template-columns: 100px 1fr 100px;
+        grid-template-rows: 50px 120px 50px;
+        gap: 6px;
+        background-color: lightgray;
+        padding: 8px;
+      }
+      .s15-header {
+        grid-area: header;
+        background-color: aliceblue;
+      }
+      .s15-nav {
+        grid-area: nav;
+        background-color: rgb(31, 77, 85);
+      }
+      .s15-main {
+        grid-area: main;
+        background-color: rgb(161, 54, 177);
+      }
+      .s15-aside {
+        grid-area: aside;
+        background-color: rgb(152, 164, 60);
+      }
+      .s15-footer {
+        grid-area: footer;
+        background-color: rgb(164, 190, 213);
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <h2>섹션 15. grid-template-areas — 이름으로 레이아웃</h2>
+      <div class="s15-container">
+        <div class="s15-header">header</div>
+        <div class="s15-nav">nav</div>
+        <div class="s15-main">main</div>
+        <div class="s15-aside">aside</div>
+        <div class="s15-footer">footer</div>
+      </div>
+    </section>
+  </body>
+</html>
