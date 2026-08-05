@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .base {
+        width: 800px;
+        height: 500px;
+        background-color: skyblue;
+        border: 1px solid black;
+        background-image: url("./lion.png");
+        margin-bottom: 30px;
+      }
+      .a {
+        background-position-y: center;
+        background-repeat: repeat-x;
+      }
+      .b {
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position-x: 100px;
+        background-position-y: 30px;
+      }
+      .c {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h2>수직 중앙 배치 + x축 반복</h2>
+      <div class="base a"></div>
+      <h2>짧은 축 맞추기 + 왼쪽 100px, 위 30px</h2>
+      <div class="base b"></div>
+      <h2>긴 축 맞추기 + 포지션 center</h2>
+      <div class="base c"></div>
+    </div>
+  </body>
+</html>
