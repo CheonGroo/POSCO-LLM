@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .hint {
+        color: pink;
+        font-size: 14px;
+      }
+      .box {
+        width: 150px;
+        height: 150px;
+        background-color: bisque;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .base {
+        transition: background-color 0.3s ease 0s;
+        transition-property: width;
+        transition-duration: 3s;
+        transition-delay: 1s;
+      }
+      .base:hover {
+        width: 300px;
+        background-color: lightcoral;
+        transform: scale(1.5);
+      }
+      .container {
+        display: flex;
+        justify-content: space-around;
+      }
+      .linear:hover {
+        transition-timing-function: linear;
+      }
+      .in:hover {
+        transition-timing-function: ease-in;
+      }
+      .out:hover {
+        transition-timing-function: ease-out;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <h2>Transition</h2>
+      <div class="container">
+        <div class="box base">hover</div>
+        <div class="box base linear">hover</div>
+        <div class="box base in">hover</div>
+        <div class="box base out">hover</div>
+      </div>
+      <p class="hint">마우스를 올리면 배경색 바뀜</p>
+    </section>
+  </body>
+</html>

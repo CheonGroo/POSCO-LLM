@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: ivory;
+        border: 2px solid brown;
+        text-align: center;
+        line-height: 100px;
+        margin: 100px;
+      }
+      .hint {
+        color: pink;
+        font-size: 14px;
+      }
+      .move:hover {
+        transform: translate(40px, 40px) scale(0.5) rotate(45deg);
+        transform: skew(0deg, 20deg);
+      }
+      .stage {
+        perspective: 500px;
+      }
+      .pers:hover {
+        transform: rotateY(90deg);
+      }
+      .back {
+        /* backface-visibility: hidden; */
+      }
+      .back:hover {
+        transform: rotateY(180deg);
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="box move">이동</div>
+      <p class="hint">hover시 오른쪽 아래로 이동</p>
+    </section>
+    <section>
+      <div class="stage">
+        <div class="box pers">3D</div>
+      </div>
+      <p class="hint">hover시 카드 회전</p>
+    </section>
+    <section>
+      <div class="stage">
+        <div class="box back">앞면</div>
+      </div>
+      <p class="hint">hover시 카드 회전</p>
+    </section>
+  </body>
+</html>
