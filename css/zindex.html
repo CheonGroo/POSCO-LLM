@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 80px;
+        height: 80px;
+        background-color: lightblue;
+        border: 1px solid black;
+
+        text-align: center;
+        line-height: 80px;
+      }
+      .s6-parent {
+        position: relative;
+        height: 150px;
+        background-color: whitesmoke;
+        border: 1px solid black;
+      }
+      /* z index가 없으면 순서대로 쌓임 a<b<c */
+      /* .s6-a {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background-color: azure;
+      }
+      .s6-b {
+        position: absolute;
+        top: 30px;
+        left: 40px;
+        background-color: blanchedalmond;
+      }
+      .s6-c {
+        position: absolute;
+        top: 60px;
+        left: 60px;
+        background-color: darkkhaki;
+      } */
+
+      /* zindex 쓰면 레이어 순서 매겨짐 */
+      .s6-a {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background-color: azure;
+        z-index: 3;
+      }
+      .s6-b {
+        position: absolute;
+        top: 30px;
+        left: 40px;
+        background-color: blanchedalmond;
+        z-index: 1;
+      }
+      .s6-c {
+        position: absolute;
+        top: 60px;
+        left: 60px;
+        background-color: darkkhaki;
+        z-index: 2;
+      }
+      .s6-s {
+        position: absolute;
+        /* 자동으로 display:block이 적용돼서 span도 w,h 적용 가능해짐 */
+        width: 80px;
+        height: 80px;
+        background-color: pink;
+        z-index: 4;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <h2>섹션 6 : 요소 쌓임 순서</h2>
+      <div class="s6-parent">
+        <div class="box s6-a">A</div>
+        <div class="box s6-b">B</div>
+        <div class="box s6-c">C</div>
+        <span class="box s6-s">span</span>
+      </div>
+    </section>
+  </body>
+</html>

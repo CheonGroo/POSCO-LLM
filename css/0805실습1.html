@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>>Document</title>
+    <style>
+      .container {
+        position: relative;
+        width: 500px;
+        height: 500px;
+        background-color: lightpink;
+        border: 1px solid brown;
+        text-align: center;
+        line-height: 100px;
+      }
+      .item {
+        width: 100px;
+        height: 100px;
+      }
+      .relative {
+        /* position이 지정된 가장 가까운 부모를 기준으로 배치 */
+        position: relative;
+        left: 50px;
+        top: 30px;
+        background-color: lightgoldenrodyellow;
+      }
+      .absolute {
+        position: absolute;
+        bottom: 100px;
+        right: 30px;
+        background-color: lightskyblue;
+      }
+      .fixed {
+        position: fixed;
+        top: 100px;
+        right: 100px;
+        background-color: lightgray;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="container">
+        <div class="item relative">자기 자신 기준</div>
+        <div class="item absolute">컨테이너 기준</div>
+        <div class="item fixed">뷰포트 기준</div>
+      </div>
+    </section>
+  </body>
+</html>

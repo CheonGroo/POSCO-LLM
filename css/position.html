@@ -13,6 +13,48 @@
         text-align: center;
         line-height: 80px;
       }
+      .s1-box {
+        position: static;
+      }
+      /* 자기자신의 원래 위치를 기준으로 top, left만큼 이동 */
+      .s2-moved {
+        position: relative;
+        top: 20px;
+        left: 40px;
+        bottom: 50px;
+        right: 30px;
+        background-color: lightcoral;
+      }
+
+      /* section 3 */
+      .s3-parent {
+        /* position이 지정된 가장 가까운 부모를 기준으로 배치 */
+        position: relative;
+        height: 180px;
+        background-color: lightgoldenrodyellow;
+        border: 2px solid black;
+      }
+      .s3-child {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background-color: yellow;
+      }
+      .s4-fixed {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+      }
+      .s5-scroll {
+        height: 160px;
+        overflow: scroll;
+        border: 2px solid black;
+      }
+      .s5-sticky {
+        position: sticky;
+
+        background-color: greenyellow;
+      }
     </style>
   </head>
   <body>
@@ -20,6 +62,29 @@
       <h2>position:static - 기본 흐름</h2>
       <div class="box s1-box">1</div>
       <div class="box s1-box">2</div>
+      <div class="box s2-moved">3</div>
+    </section>
+    <section>
+      <h2>섹션 3 : position : absolute</h2>
+      <div class="s3-parent">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box s3-child">3</div>
+      </div>
+    </section>
+    <section>
+      <h2>섹션 4 position:fixed</h2>
+      <div class="box s4-fixed">fixed 배지</div>
+    </section>
+    <section>
+      <h2>섹션 5 : position:sticky</h2>
+      <div class="s5-scroll">
+        <div class="s5-sticky">스띠끼~</div>
+        <p>네 곁에선 상큼하고 달콤한</p>
+        <p>스티끼~</p>
+        <p>이 느낌 마치 망고 깁앤 스티끼 라이스~</p>
+        <p>상상이 번져 여긴 내 파라다이스</p>
+      </div>
     </section>
   </body>
 </html>
