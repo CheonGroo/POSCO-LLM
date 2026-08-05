@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 150px;
+        height: 150px;
+        background-color: aliceblue;
+      }
+      @keyframes fade {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      .fade {
+        animation-name: fade;
+        animation-duration: 2s;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <h2>@keyframes</h2>
+      <div class="box fade">fade</div>
+      <p class="hint">새로고침하면 2초동안 나타남</p>
+    </section>
+  </body>
+</html>

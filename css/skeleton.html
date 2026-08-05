@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .a {
+        width: 200px;
+      }
+      .b {
+        width: 140px;
+      }
+      @keyframes shimmer {
+        0% {
+          background-position: 200% 0;
+        }
+        100% {
+          background-position: -200% 0;
+        }
+      }
+      .skeleton {
+        width: 260px;
+        height: 36px;
+        border-radius: 4px;
+        margin-bottom: 10px;
+        background: linear-gradient(
+          90deg,
+          ivory 0%,
+          rgb(255, 245, 245) 50%,
+          #f7ffa445
+        );
+        background-size: 200% 100%;
+        animation: shimmer 1.6s infinite linear;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <h2>Skeleton</h2>
+      <div class="skeleton"></div>
+      <div class="skeleton a"></div>
+      <div class="skeleton b"></div>
+    </section>
+  </body>
+</html>
