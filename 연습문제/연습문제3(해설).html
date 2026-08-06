@@ -1,274 +1,328 @@
-<!DOCTYPE html>
+<!doctype html>
 <!--
   ═══════════════════════════════════════════════════════════════
-  99_연습문제 정답 — 5일차 (Flexbox · Grid)
+  99_연습문제 정답 — 7일차 (Transition · Transform · Animation)
   브라우저로 열면 완성 모습을 그대로 확인할 수 있습니다.
   각 정답 아래 "해설:" 주석을 꼭 읽어 보세요.
+  (마우스를 올려 보고, 애니메이션은 F5로 처음부터 재생해 보세요)
   ═══════════════════════════════════════════════════════════════
 -->
 <html lang="ko">
-<head>
-  <meta charset="UTF-8" />
-  <title>5일차 연습문제 정답 — Flexbox · Grid</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>7일차 연습문제 정답 — Transition · Transform · Animation</title>
 
-  <style>
-    /* ── 기본 제공 스타일 (문제 아님) ── */
-    body { font-family: "맑은 고딕", "Malgun Gothic", sans-serif; margin: 20px; }
-    section { border-bottom: 1px dashed #ccc; padding: 16px 8px; }
-    h2 { font-size: 17px; color: #333; }
-    .hint-text { color: #888; font-size: 13px; }
+    <style>
+      /* ── 기본 제공 스타일 (문제 아님) ── */
+      body {
+        font-family: "맑은 고딕", "Malgun Gothic", sans-serif;
+        margin: 20px;
+      }
+      section {
+        border-bottom: 1px dashed #ccc;
+        padding: 16px 8px;
+      }
+      h2 {
+        font-size: 17px;
+        color: #333;
+      }
+      .hint-text {
+        color: #888;
+        font-size: 13px;
+      }
 
-    .nav-item {
-      background-color: #4dabf7; color: white;
-      border: 1px solid #1971c2; padding: 8px 14px;
-    }
-    .site-header {
-      height: 64px; background-color: #212529; color: white;
-      padding: 0 16px;
-    }
-    .logo { font-size: 18px; font-weight: bold; }
-    .menu-card {
-      width: 170px; height: 130px;
-      border: 2px solid #1971c2; border-radius: 10px;
-      background-color: #e7f1ff;
-    }
-    .menu-name { color: #555; }
-    .menu-price { font-size: 26px; font-weight: bold; color: #1971c2; }
-    .tag-box { width: 320px; border: 2px dashed #868e96; padding: 8px; }
-    .tag {
-      background-color: #e9ecef; padding: 4px 10px;
-      border-radius: 12px; font-size: 14px;
-    }
-    .tag-urgent { background-color: #ffa8a8; font-weight: bold; }
-    .dessert {
-      background-color: #69db7c; border: 2px solid #2f9e44;
-      color: white; text-align: center; padding: 10px 0;
-    }
-    .big-tile {
-      height: 120px; margin-top: 10px;
-      border: 2px dashed #868e96; background-color: #f1f3f5;
-    }
-    .big-num { font-size: 34px; font-weight: bold; color: #1971c2; }
-    .tile {
-      background-color: #4dabf7; border: 2px solid #1971c2;
-      color: white; padding: 10px;
-    }
-    .tile-event { background-color: #ff8787; border-color: #e03131; }
-    .tile-notice { background-color: #ffd43b; border-color: #f08c00; color: #333; }
-    .area-header { background-color: #4dabf7; color: white; padding: 8px; }
-    .area-nav    { background-color: #69db7c; color: white; padding: 8px; }
-    .area-main   { background-color: #f08c00; color: white; padding: 8px; }
-    .area-aside  { background-color: #b197fc; color: white; padding: 8px; }
-    .area-footer { background-color: #868e96; color: white; padding: 8px; }
-    .notice-item {
-      background-color: white; color: #333;
-      padding: 4px 6px; border-radius: 6px; font-size: 13px;
-    }
+      .book-btn {
+        background-color: #2563eb;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 6px;
+        font-size: 15px;
+        cursor: pointer;
+      }
+      .lift-card {
+        width: 240px;
+        border: 2px solid #1971c2;
+        border-radius: 10px;
+        padding: 14px;
+        background-color: #f8fbff;
+      }
+      .lift-card h3 {
+        font-size: 16px;
+        margin: 0 0 6px;
+      }
+      .play-btn {
+        display: inline-block;
+        width: 64px;
+        height: 64px;
+        border-radius: 32px;
+        background-color: #495057;
+        color: white;
+        text-align: center;
+        line-height: 64px;
+        font-weight: bold;
+      }
+      .race {
+        border: 2px dashed #868e96;
+        padding: 10px;
+      }
+      .runner {
+        width: 90px;
+        margin-bottom: 6px;
+        background-color: #4dabf7;
+        border: 2px solid #1971c2;
+        color: white;
+        text-align: center;
+        padding: 8px 0;
+        font-size: 14px;
+      }
+      .alert-new {
+        background-color: #fff3bf;
+        border-left: 6px solid #f08c00;
+        padding: 10px 14px;
+      }
+      .counter {
+        background-color: #dee2e6;
+        padding: 10px;
+        border-radius: 6px;
+      }
+      .snack-box {
+        width: 70px;
+        background-color: #f08c00;
+        border: 2px solid #e8590c;
+        color: white;
+        text-align: center;
+        padding: 10px 0;
+        font-weight: bold;
+      }
+      .warn-card {
+        width: 280px;
+        border: 2px solid #e03131;
+        border-radius: 12px;
+        padding: 14px;
+        background-color: #fff5f5;
+      }
+      .warn-card h3 {
+        font-size: 16px;
+        margin: 8px 0 4px;
+      }
+      .warn-card p {
+        margin: 0;
+        font-size: 14px;
+        color: #555;
+      }
+      .warn-badge {
+        display: inline-block;
+        background-color: crimson;
+        color: white;
+        padding: 2px 10px;
+        border-radius: 10px;
+        font-size: 13px;
+      }
+      .loading-bar {
+        height: 12px;
+        border-radius: 6px;
+        background-color: #e0e0e0;
+        margin-top: 10px;
+      }
 
-    /* ═══ 문제 1 정답 ═══ */
-    .top-nav {
-      display: flex;
-      gap: 10px;
-    }
-    /* 해설: flex는 아이템이 아니라 "부모(컨테이너)"에 선언합니다.
-       gap은 grid뿐 아니라 flex 컨테이너에서도 똑같이 동작합니다. */
+      /* ═══ 문제 1 정답 ═══ */
+      /* 전환 선언은 "평소 상태"에! */
+      .book-btn {
+        transition-property: background-color;
+        transition-duration: 0.4s;
+      }
+      .book-btn:hover {
+        background-color: #16a34a;
+      }
+      /* 해설: transition을 :hover 쪽에 쓰면 마우스를 뗄 때 전환 선언도
+       함께 사라져 뚝 끊깁니다. 평소 상태에 걸면 갈 때도 올 때도 부드럽습니다. */
 
-    /* ═══ 문제 2 정답 ═══ */
-    .site-header {
-      display: flex;
-      justify-content: space-between;  /* 주 축(가로): 양 끝으로 */
-      align-items: center;             /* 교차 축(세로): 가운데 */
-    }
-    /* 해설: "양끝 정렬 + 세로 중앙"은 헤더의 단골 패턴입니다.
-       justify-content는 주 축, align-items는 교차 축 담당! */
+      /* ═══ 문제 2 정답 ═══ */
+      .lift-card {
+        transition: transform 0.3s; /* 단축: 속성 지속시간 */
+      }
+      .lift-card:hover {
+        transform: translateY(-8px); /* Y축 음수 = 위로 */
+      }
+      /* 해설: width/margin 대신 transform으로 움직이면
+       주변 요소를 밀지 않아 레이아웃이 흔들리지 않습니다. */
 
-    /* ═══ 문제 3 정답 ═══ */
-    /* 3-1) 카드 3장 가로 배치 */
-    .menu-row {
-      display: flex;
-      gap: 12px;
-    }
-    /* 3-2) 카드 내부: 세로로 쌓고 정중앙 */
-    .menu-card {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;   /* column이므로 세로 정렬 담당 */
-      align-items: center;       /* column이므로 가로 정렬 담당 */
-    }
-    /* 해설: flex-direction: column이 되면 주 축이 세로로 바뀌어
-       justify-content와 align-items의 역할이 서로 뒤바뀝니다. */
+      /* ═══ 문제 3 정답 ═══ */
+      .play-btn {
+        transition: transform 0.5s;
+      }
+      .play-btn:hover {
+        transform: rotate(90deg) scale(1.2); /* 공백으로 나열 = 동시 적용 */
+      }
+      /* 해설: transform을 두 줄로 나눠 쓰면 마지막 선언만 남습니다.
+       회전+확대처럼 여러 변환은 반드시 한 줄에 공백으로 나열! */
 
-    /* ═══ 문제 4 정답 ═══ */
-    /* 4-1) 줄바꿈 + 간격 */
-    .tag-box {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-    /* 4-2) HTML 순서는 그대로, 화면 순서만 맨 앞으로 */
-    .tag-urgent {
-      order: -1;
-    }
-    /* 해설: nowrap(기본값)이면 좁은 상자에서 태그가 찌그러집니다.
-       order는 화면 배치 순서만 바꾸고 HTML 순서는 그대로입니다(접근성 주의). */
+      /* ═══ 문제 4 정답 ═══ */
+      /* 4-1) 공통 전환 */
+      .runner {
+        transition: transform 1s;
+      }
+      /* 4-2) 트리거: 트랙에 올리면 모든 runner 이동 (후손 선택자 + hover) */
+      .race:hover .runner {
+        transform: translateX(260px);
+      }
+      /* 4-3) 관객별 타이밍 함수 */
+      .r-linear {
+        transition-timing-function: linear;
+      } /* 일정한 속도 */
+      .r-easein {
+        transition-timing-function: ease-in;
+      } /* 천천히 출발 */
+      .r-easeout {
+        transition-timing-function: ease-out;
+      } /* 천천히 도착 */
+      /* 4-4) 반 박자 늦게 출발 */
+      .r-delay {
+        transition-delay: 0.5s;
+      }
+      /* 해설: 같은 1초, 같은 260px여도 타이밍 함수에 따라 느낌이 다릅니다.
+       delay는 duration 뒤의 "두 번째 시간값" — 순서에 주의하세요. */
 
-    /* ═══ 문제 5 정답 ═══ */
-    /* 5-1) 4열 격자 — repeat(횟수, 크기) */
-    .dessert-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
-    }
-    /* 5-2) 단일 셀 그리드 + place-items로 정중앙 */
-    .big-tile {
-      display: grid;
-      place-items: center;
-    }
-    /* 해설: place-items: center는 align-items + justify-items의 단축 —
-       자식 하나를 정중앙에 두는 가장 짧은 방법입니다.
-       repeat(4, 1fr)의 쉼표를 빠뜨리면 선언 전체가 무시됩니다! */
+      /* ═══ 문제 5 정답 ═══ */
+      @keyframes fade-in {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      .alert-new {
+        animation-name: fade-in;
+        animation-duration: 2s;
+      }
+      /* 해설: @keyframes는 "대본", animation은 "배우에게 대본 배정"입니다.
+       duration이 없으면 기본 0초라 아무것도 재생되지 않습니다! */
 
-    /* ═══ 문제 6 정답 ═══ */
-    /* 6-1) 3열 x 2행 골격 */
-    .home-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: 100px 100px;
-      gap: 10px;
-    }
-    /* 6-2) 열 라인 1 -> 3 = 2칸 차지 */
-    .tile-event {
-      grid-column: 1 / 3;
-    }
-    /* 6-3) 시작 행부터 2행에 걸치기 (span) */
-    .tile-notice {
-      grid-row: 1 / span 2;
-    }
-    /* 해설: grid-column: 1 / 3은 "라인 1부터 라인 3까지" = 2칸입니다.
-       span 2는 "시작점에서 2칸"이라는 뜻으로 결과가 같습니다. */
+      /* ═══ 문제 6 정답 ═══ */
+      @keyframes move-box {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(220px);
+        }
+      }
+      .snack-box {
+        animation: move-box 2s ease-in-out infinite alternate;
+      }
+      /* 해설: alternate가 없으면 220px에서 순간이동으로 처음으로 돌아갑니다.
+       alternate는 "갔다가 되돌아오기"라 왕복이 자연스럽습니다.
+       단축 순서: 이름 duration 타이밍함수 (delay) 반복횟수 방향 */
 
-    /* ═══ 문제 7 [도전] 정답 ═══ */
-    /* 7-1) 이름으로 그리는 레이아웃 */
-    .layout {
-      display: grid;
-      grid-template-areas:
-        "header header header"
-        "nav    main   aside"
-        "footer footer footer";
-      grid-template-columns: 120px 1fr 160px;
-      grid-template-rows: 56px 220px 40px;
-      gap: 8px;
-    }
-    /* 7-2) 각 영역이 이름표를 달고 자리를 찾아감 */
-    .area-header { grid-area: header; }
-    .area-nav    { grid-area: nav; }
-    .area-main   { grid-area: main; }
-    .area-aside  { grid-area: aside; }
-    .area-footer { grid-area: footer; }
-    /* 7-3) 공지 영역 내부는 flex column */
-    .area-aside {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    /* 해설: areas의 각 행 문자열은 칸 수가 모두 같아야 합니다(다르면 전체 무효).
-       바깥 배치는 grid, 영역 "안" 정돈은 flex — 둘을 섞어 쓰는 것이 실무 기본형! */
-  </style>
-</head>
-<body>
-  <h1>카페 홈페이지 배치 연습</h1>
+      /* ═══ 문제 7 [도전] 정답 ═══ */
+      /* 7-1) 카드 호버 모션 */
+      .warn-card {
+        transition: transform 0.3s;
+      }
+      .warn-card:hover {
+        transform: translateY(-6px) scale(1.02);
+      }
+      /* 7-2) 배지 깜빡임 — 중간 지점(50%)을 직접 제어 */
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 1;
+        } /* 여러 지점은 콤마로 묶기 */
+        50% {
+          opacity: 0.2;
+        }
+      }
+      .warn-badge {
+        animation: blink 1s infinite;
+      }
+      /* 7-3) [보너스] shimmer — 배경만 움직여 빛이 흐르는 효과 */
+      @keyframes shimmer {
+        0% {
+          background-position: 200% 0;
+        }
+        100% {
+          background-position: -200% 0;
+        }
+      }
+      .loading-bar {
+        background: linear-gradient(
+          90deg,
+          #e0e0e0 0%,
+          #f5f5f5 50%,
+          #e0e0e0 100%
+        );
+        background-size: 200% 100%; /* 요소보다 2배 크게 */
+        animation: shimmer 1.6s infinite linear;
+      }
+      /* 해설: transition(호버 반응)과 animation(스스로 반복)은 역할이 다릅니다.
+       깜빡임·로딩처럼 "사용자 입력 없이 계속" 움직이는 것은 animation!
+       shimmer는 요소가 아니라 background-position만 움직여야
+       카드 레이아웃이 흔들리지 않습니다. */
+    </style>
+  </head>
+  <body>
+    <h1>영화관 홈페이지에 생기 불어넣기</h1>
 
-  <section>
-    <h2>문제 1. flex 시작 — 상단 메뉴 가로 배치</h2>
-    <nav class="top-nav">
-      <div class="nav-item">홈</div>
-      <div class="nav-item">메뉴 소개</div>
-      <div class="nav-item">매장 안내</div>
-      <div class="nav-item">단체 예약</div>
-    </nav>
-  </section>
+    <section>
+      <h2>문제 1. transition — 부드러운 예매 버튼</h2>
+      <button class="book-btn">지금 예매하기</button>
+    </section>
 
-  <section>
-    <h2>문제 2. 헤더 양끝 정렬 — 로고와 상태 요약</h2>
-    <header class="site-header">
-      <div class="logo">CAFE MOCHA</div>
-      <div class="status-sum">영업중 · 빈자리 8 · 예약 3</div>
-    </header>
-  </section>
-
-  <section>
-    <h2>문제 3. 메뉴 카드 — 세로 쌓기와 완전 중앙</h2>
-    <div class="menu-row">
-      <div class="menu-card">
-        <div class="menu-name">아메리카노</div>
-        <div class="menu-price">4,500</div>
+    <section>
+      <h2>문제 2. transform — 떠오르는 영화 카드</h2>
+      <div class="lift-card">
+        <h3>우주 대모험</h3>
+        <p>평점 9.2 · 절찬 상영 중</p>
       </div>
-      <div class="menu-card">
-        <div class="menu-name">카페라떼</div>
-        <div class="menu-price">5,000</div>
+    </section>
+
+    <section>
+      <h2>문제 3. transform 조합 — 도는 재생 버튼</h2>
+      <div class="play-btn">재생</div>
+    </section>
+
+    <section>
+      <h2>문제 4. timing-function — 관객 입장 비교</h2>
+      <div class="race">
+        <div class="runner r-linear">관객-1</div>
+        <div class="runner r-easein">관객-2</div>
+        <div class="runner r-easeout">관객-3</div>
+        <div class="runner r-delay">관객-4</div>
       </div>
-      <div class="menu-card">
-        <div class="menu-name">바닐라라떼</div>
-        <div class="menu-price">5,500</div>
+      <p class="hint-text">
+        확인: 트랙에 마우스를 올리면 4명이 다른 리듬으로 입장!
+      </p>
+    </section>
+
+    <section>
+      <h2>문제 5. @keyframes — 서서히 나타나는 신규 소식</h2>
+      <div class="alert-new">
+        신규 소식 — 이번 주 개봉작 예매가 시작되었습니다.
       </div>
-    </div>
-  </section>
+      <p class="hint-text">확인: F5를 누르면 알림이 스르륵 나타나면 성공!</p>
+    </section>
 
-  <section>
-    <h2>문제 4. 메뉴 태그 — 줄바꿈과 순서 바꾸기</h2>
-    <div class="tag-box">
-      <span class="tag">아메리카노</span>
-      <span class="tag">콜드브루</span>
-      <span class="tag">카페라떼</span>
-      <span class="tag tag-urgent">품절임박</span>
-      <span class="tag">카푸치노</span>
-      <span class="tag">딸기스무디</span>
-      <span class="tag">허브티</span>
-      <span class="tag">치즈케이크</span>
-    </div>
-  </section>
-
-  <section>
-    <h2>문제 5. 디저트 격자와 정중앙 타일</h2>
-    <div class="dessert-grid">
-      <div class="dessert">크루아상</div>
-      <div class="dessert">마카롱</div>
-      <div class="dessert">스콘</div>
-      <div class="dessert">쿠키</div>
-      <div class="dessert">티라미수</div>
-      <div class="dessert">브라우니</div>
-      <div class="dessert">머핀</div>
-      <div class="dessert">와플</div>
-    </div>
-    <div class="big-tile">
-      <div class="big-num">98.7%</div>
-    </div>
-  </section>
-
-  <section>
-    <h2>문제 6. 홈 화면 타일 — 넓게, 길게 배치</h2>
-    <div class="home-grid">
-      <div class="tile tile-event">여름 이벤트 안내</div>
-      <div class="tile tile-notice">공지사항</div>
-      <div class="tile">이달의 원두</div>
-      <div class="tile">오시는 길</div>
-    </div>
-  </section>
-
-  <section>
-    <h2>문제 7. [도전] 카페 홈페이지 뼈대 — areas + flex</h2>
-    <div class="layout">
-      <div class="area-header">카페 모카 홈페이지</div>
-      <div class="area-nav">메뉴</div>
-      <div class="area-main">이달의 추천 메뉴</div>
-      <div class="area-aside">
-        <div class="notice-item">신메뉴 출시 안내</div>
-        <div class="notice-item">주말 영업시간 변경</div>
-        <div class="notice-item">단체석 예약 안내</div>
+    <section>
+      <h2>문제 6. animation — 매점 진열대 위 팝콘 상자</h2>
+      <div class="counter">
+        <div class="snack-box">팝콘</div>
       </div>
-      <div class="area-footer">© 2026 카페 모카</div>
-    </div>
-    <p class="hint-text">확인: 머리글/메뉴/본문/공지/바닥글 5개 영역이 자리를 잡으면 성공!</p>
-  </section>
-</body>
+    </section>
+
+    <section>
+      <h2>문제 7. [도전] 깜빡이는 배지 + 호버 카드 + 로딩 바</h2>
+      <div class="warn-card">
+        <span class="warn-badge">매진 임박</span>
+        <h3>우주 대모험 좌석 매진 임박</h3>
+        <p>잔여 좌석이 얼마 남지 않았습니다. 예매율 집계 중...</p>
+        <div class="loading-bar"></div>
+      </div>
+      <p class="hint-text">
+        확인: 배지 깜빡임 + 카드 호버 모션 + 로딩 바 빛 흐름
+      </p>
+    </section>
+  </body>
 </html>
